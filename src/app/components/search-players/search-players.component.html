@@ -1,0 +1,68 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">find player</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="site-section"  >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7" style="margin-left: 200px;">
+            <form [formGroup]="searchForm">
+              <div class="form-group">
+                <label for="">age</label>
+                <input type="text" formControlName="age" class="form-control">
+              </div>
+              <div *ngIf="searchForm.controls['age'].invalid && searchForm.controls['age'].dirty || searchForm.controls['age'].touched ">
+                <div *ngIf="searchForm.controls['age'].errors?.['required']" style="color: red;">age is required</div>
+              </div>
+             
+              <div class="form-group">
+                <input type="submit" (click)="search()" [disabled]="searchForm.invalid" class="btn btn-primary py-3 px-5" value="search" style="margin-left: 200px;">
+              </div>
+            </form>  
+
+            <div *ngFor="let elt of T">
+                <div class="row">
+                    <div class="col-lg-6"  style="margin-top: 20px;">
+                        <div class="custom-media d-flex">
+                            <div class="img mr-4">
+                                <img src="assets/images/img_1.jpg" alt="Image" class="img-fluid">
+                            </div>
+                            <div class="text">
+                                <h3 class="mb-4">name:  <a href="#">{{elt.name}}</a></h3>
+                                <h3 class="mb-4">age: <a href="#">{{elt.age}}</a></h3>
+                                <h3 class="mb-4">position:  <a href="#">{{elt.position}}</a></h3>
+                                <h3 class="mb-4">nbr: <a href="#">{{elt.nbr}}</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

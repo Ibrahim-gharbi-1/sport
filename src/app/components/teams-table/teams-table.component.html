@@ -1,0 +1,38 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="color: red;">id</th>
+      <th scope="col" style="color: red;">name</th>
+      <th scope="col" style="color: red;">owner</th>
+      <th scope="col" style="color: red;">foundation</th>
+      <th scope="col" style="color: red;">players</th>
+      <th scope="col" style="color: red;">action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of teamsTab">
+      <td>
+        {{m._id}}
+      </td>
+      <td>
+        {{m.name}}
+      </td>
+      <td>
+        {{m.owner}}
+      </td>
+      <td>
+        {{m.foundation}}
+      </td>
+      <td>
+        <span *ngFor="let elt of m.players">
+          {{elt.name}} :: {{elt.age}} :: {{elt.potition}} :: {{elt.nbr}}
+        </span>
+      </td>
+      <td><button type="button" (click)="display(m.id)" class="btn btn-success">display</button><button type="button"
+          class="btn btn-primary ml-1 mr-1" (click)="edit(m.id)"
+          style="background-color: blue;border-color: blue;">edit</button><button type="button" class="btn btn-danger"
+          (click)="deleteTeam(m.id)">delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,39 @@
+<table class="table">
+    <thead >
+      <tr>
+        <th scope="col" style="color: red;">id</th>
+        <th scope="col" style="color: red;">score1</th>
+        <th scope="col" style="color: red;">score2</th>
+        <th scope="col" style="color: red;">team1</th>
+        <th scope="col" style="color: red;">team2</th>
+        <th scope="col" style="color: red;">result</th>
+        <th scope="col" style="color: red;">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of matchesTab">
+      <td>
+        {{m._id}}
+      </td>
+      <td>
+        {{m.scoreOne}}
+      </td>
+      <td>
+        {{m.scoreTwo}}
+      </td>
+      <td [ngClass]="{win:m.scoreOne>m.scoreTwo,loss:m.scoreOne<m.scoreTwo ,draw:m.scoreOne==m.scoreTwo}">
+        {{m.teamOne}}
+      </td>
+      <td [ngClass]="{win:m.scoreTwo>m.scoreOne,loss:m.scoreTwo<m.scoreOne,draw:m.scoreTwo==m.scoreOne}">
+        {{m.teamTwo}}
+      </td>
+      <td>
+      <span  [ngStyle]="{color:team2(m.scoreOne,m.scoreTwo,m.teamTwo)[0]}">{{team2(m.scoreOne,m.scoreTwo,m.teamTwo)[1]}}</span> <span>{{team2(m.scoreOne,m.scoreTwo,m.teamTwo)[2]}}</span>
+      </td>
+      <td ><button type="button" class="btn btn-success" (click)="goToInfo(m._id)">display</button>
+        <button type="button" class="btn btn-primary ml-1 mr-1" (click)="goToEdit(m._id)" style="background-color: blue;border-color: blue;">edit</button>
+        <button type="button" (click)="deleteMatch(m._id)" class="btn btn-danger">delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>

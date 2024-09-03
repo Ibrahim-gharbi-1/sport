@@ -1,0 +1,33 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col" style="color: red;">id</th>
+        <th scope="col" style="color: red;">name</th>
+        <th scope="col"style="color: red;">age</th>
+        <th scope="col" style="color: red;">nbr</th>
+        <th scope="col" style="color: red;">position</th>
+        <th scope="col" style="color: red;">action</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let m of playersTab">
+        <td>
+          {{m._id}}
+        </td>
+      <td>
+        {{m.name}}
+      </td>
+      <td>
+        {{m.age}}
+      </td>
+      <td>
+        {{m.nbr}}
+      </td>
+      <td>
+        {{m.position}}
+      </td>
+      <td><button type="button" class="btn btn-success" (click)="display(m.id)">display</button><button type="button"  (click)="edit(m.id)" class="btn btn-primary ml-1 mr-1" style="background-color: blue;border-color: blue;" >edit</button><button type="button" (click)="deletePlayer(m.id)" class="btn btn-danger">delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>

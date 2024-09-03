@@ -1,0 +1,70 @@
+
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">{{title|asterix}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="site-section"  >
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7" style="margin-left: 200px;">
+          <form action="#" #playerForm="ngForm" (ngSubmit)="addPlayer()">
+            <div class="form-group">
+              <label for="">name</label>
+              <input type="text" [(ngModel)]="player.name" [ngModelOptions]="{ standalone: true }" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label" >position</label>
+              <br>
+              <select class="form-control" aria-label="Default select example" [(ngModel)]="player.position" [ngModelOptions]="{ standalone: true }">
+                <option selected style="color: black;" value="GK">GK</option>
+                <option style="color: black;" value="MID">MID</option>
+                <option style="color: black;" value="ATK">ATK</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for=""> nbr</label>
+              <input type="number"  [(ngModel)]="player.nbr" [ngModelOptions]="{ standalone: true }" class="form-control" >
+            </div>
+            <div class="form-group">
+              <label for=""> age</label>
+              <input type="number"  [(ngModel)]="player.age" [ngModelOptions]="{ standalone: true }" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" class="form-label" >select team</label>
+              <br>
+              <select class="form-control" aria-label="Default select example" ng-model='discussionsSelect' [(ngModel)]="player.teamId" [ngModelOptions]="{ standalone: true }">
+                <option style="color: black;" *ngFor="let team of team"  [value]="team._id">{{team.name}}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="submit"   class="btn btn-primary py-3 px-5" value="add player" style="margin-left: 200px;">
+            </div>
+          </form>  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

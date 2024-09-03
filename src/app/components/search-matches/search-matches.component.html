@@ -1,0 +1,61 @@
+
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">search</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="site-section"  >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7" style="margin-left: 200px;">
+            <form action="#" [formGroup]="searchMatchForm">
+              <div class="form-group">
+                <label for="">score1</label>
+                <input type="text" formControlName="scoreOne"  class="form-control">
+              </div>
+              <div *ngIf="searchMatchForm.controls['scoreOne'].invalid && searchMatchForm.controls['scoreOne'].dirty || searchMatchForm.controls['scoreOne'].touched ">
+                <div *ngIf="searchMatchForm.controls['scoreOne'].errors?.['required']" style="color: red;">score One is required</div>
+              </div>
+              <div class="form-group">
+                <label for="">score2</label>
+                <input type="text" formControlName="scoreTwo" class="form-control" >
+              </div>
+              <div *ngIf="searchMatchForm.controls['scoreTwo'].invalid && searchMatchForm.controls['scoreTwo'].dirty || searchMatchForm.controls['scoreTwo'].touched ">
+                <div *ngIf="searchMatchForm.controls['scoreTwo'].errors?.['required']" style="color: red;">score Two is required</div>
+              </div>
+              <div class="form-group">
+                <input type="submit" [disabled]="searchMatchForm.invalid"    class="btn btn-primary py-3 px-5" value="search" style="margin-left: 200px;">
+              </div>
+            </form>  
+            <div *ngFor="let elt of T">
+              <app-result [obj]="elt"></app-result>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  
+  
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
