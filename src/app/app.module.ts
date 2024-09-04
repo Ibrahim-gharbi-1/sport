@@ -34,7 +34,8 @@ import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { SearchPlayersComponent } from './components/search-players/search-players.component';
 import { AsterixPipe } from './pipes/asterix.pipe';
 import { ReversePipe } from './pipes/reverse.pipe';
-import{ HttpClientModule } from "@angular/common/http"
+import{ HttpClientModule } from "@angular/common/http";
+import { WeatherComponent } from './components/weather/weather.component'
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import{ HttpClientModule } from "@angular/common/http"
     SearchPlayersComponent,
     AsterixPipe,
     ReversePipe,
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,

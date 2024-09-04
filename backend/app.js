@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const session = require('express-session')
 const multer = require('multer')
+const axios=require('axios')
 const path = require('path')
 mongoose.connect('mongodb://127.0.0.1:27017/sportDB')
 //import body parser module
@@ -346,7 +347,23 @@ app.post('/users/login', (req, res) => {
         }
     )
 })
-
+//BL 5:search weather
+app.post("/weather",(req,res)=>{
+    console.log(req.body)
+    let key="25826c5e4b3aac0a186e8a68aaf2a1b1"
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${req.body.city}&appid=${key}&units=metric`
+    axios.get(apiUrl).then(
+        (response)=>{
+            console.log("here respense from API",response.data)
+             weatherToSend={
+                temperature : response.data.main.temp,
+                pression :response.data.main.pressure,
+                humidite:response.data.main.humidity
+            }
+        }
+    )
+    res.json({city:weatherToSend})
+})
 
 //make app exportable
 module.exports = app;

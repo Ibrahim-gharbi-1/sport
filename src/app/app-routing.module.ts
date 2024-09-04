@@ -15,6 +15,7 @@ import { EditMatchComponent } from './components/edit-match/edit-match.component
 import { SearchPlayersComponent } from './components/search-players/search-players.component';
 import { TeamInfoComponent } from './components/team-info/team-info.component';
 import { PlayerInfoComponent } from './components/player-info/player-info.component';
+import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
@@ -34,7 +35,8 @@ const routes: Routes = [
   // path parametré
   { path:'matchInfo/:id', component: MatchInfoComponent },
   { path:'teamInfo/:id', component: TeamInfoComponent },
-  { path:'playerInfo/:id', component: PlayerInfoComponent }
+  { path:'playerInfo/:id', component: PlayerInfoComponent },
+  { path:'weather', component: WeatherComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,37 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 mx-auto text-center">
+        <h1 class="text-white">weather</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7" style="margin-left: 200px;">
+        <form action="#" [formGroup]="findWeather">
+
+          <div class="form-group">
+            <label for="">city</label>
+            <input type="text" formControlName="city" class="form-control">
+          </div>
+          <div
+            *ngIf="findWeather.controls['city'].invalid && findWeather.controls['city'].dirty || findWeather.controls['city'].touched ">
+            <div *ngIf="findWeather.controls['city'].errors?.['required']" style="color: red;">city is required</div>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary py-3 px-5" (click)="searchWeather()"
+              [disabled]="findWeather.invalid" value="search" style="margin-left: 200px;">
+          </div>
+          <div style="border-width: 1px;border-style: solid;border-radius: 5px;border-color:  rgba(255, 255, 255, 0.2);padding-left: 15px;padding-top: 15px;">
+            <p>temperature: <span style="color: red;">{{result.temperature}}</span></p>
+            <p>humidity: <span style="color: red;">{{result.humidite}}</span></p>
+            <p>wind Speed: <span style="color: red;">{{result.pression}}</span></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
